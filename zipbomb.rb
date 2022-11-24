@@ -5,13 +5,13 @@
 class Zipbomb < Formula
   desc "Tool that creates zip bombs"
   homepage "https://github.com/hupe1980/zipbomb"
-  version "0.0.2"
+  version "0.0.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.2/zipbomb_Darwin_x86_64.tar.gz"
-      sha256 "60a765d0dc14b366497505f693cb5ebe7dc8e70b12538eaf76055ff62d2478ce"
+      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.3/zipbomb_Darwin_x86_64.tar.gz"
+      sha256 "71b6ee49a7301ade349779a57e548a5cfdb2a0750dcacbb14c3567a985d6c08d"
 
       def install
         bin.install "zipbomb"
@@ -21,8 +21,8 @@ class Zipbomb < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.2/zipbomb_Darwin_arm64.tar.gz"
-      sha256 "eb259df73bcf858e7d4726500f72472920f3dd6820269614b8c76beaa7f4e009"
+      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.3/zipbomb_Darwin_arm64.tar.gz"
+      sha256 "a9da87969df7b99ccce0dec91afc11d7771305e759d39aef8734f9d25d44e155"
 
       def install
         bin.install "zipbomb"
@@ -34,20 +34,9 @@ class Zipbomb < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.2/zipbomb_Linux_x86_64.tar.gz"
-      sha256 "bc7855c76f33c5939032f148a35e772d4000bcbb34d4bbeb9e3c44fb4e67b0a3"
-
-      def install
-        bin.install "zipbomb"
-        bash_completion.install "completions/zipbomb.bash" => "zipbomb"
-        zsh_completion.install "completions/zipbomb.zsh" => "_zipbomb"
-        fish_completion.install "completions/zipbomb.fish"
-      end
-    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.2/zipbomb_Linux_armv6.tar.gz"
-      sha256 "3cc8148913384d830334517d8696e91429c8070cafe0a0fc21c206d2078f098e"
+      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.3/zipbomb_Linux_armv6.tar.gz"
+      sha256 "8eab046099cdf8880ffe02257bdc19426a95d683479bc5c92078a0c2c598f419"
 
       def install
         bin.install "zipbomb"
@@ -57,8 +46,19 @@ class Zipbomb < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.2/zipbomb_Linux_arm64.tar.gz"
-      sha256 "3e1fe4bb7d95f0b8166df9bca5fadaf4525bbd9ba794d7d86ace247cdfa0e492"
+      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.3/zipbomb_Linux_arm64.tar.gz"
+      sha256 "b339cf5d01664c5f2e82ce011f369a810ebece10323be23f86c671228b2ecdfe"
+
+      def install
+        bin.install "zipbomb"
+        bash_completion.install "completions/zipbomb.bash" => "zipbomb"
+        zsh_completion.install "completions/zipbomb.zsh" => "_zipbomb"
+        fish_completion.install "completions/zipbomb.fish"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/hupe1980/zipbomb/releases/download/v0.0.3/zipbomb_Linux_x86_64.tar.gz"
+      sha256 "f73934e731e2560a1f0a685aa83e1a620604d0e4ccc065c35778d9c732455b51"
 
       def install
         bin.install "zipbomb"
